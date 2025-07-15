@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Te Amo ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffb6c1, #ffe6f0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      text-align: center;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.2);
+      background: white;
+      animation: fadeInCard 1.5s ease-in-out;
+      max-width: 400px;
+    }
+
+    .photo {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .heart {
+      width: 120px;
+      height: 100px;
+      position: relative;
+      margin: 0 auto;
+      animation: heartbeat 1s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 100px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -60px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 60px;
+      top: 0;
+    }
+
+    .text {
+      font-size: 2.5rem;
+      color: #c40000;
+      margin-top: 30px;
+      font-weight: bold;
+      animation: fadeIn 2s ease-in-out infinite alternate;
+    }
+
+    .music-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff4d6d;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .music-btn:hover {
+      background-color: #e60039;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.1); }
+      50% { transform: scale(1.2); }
+      75% { transform: scale(1.1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0.5; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInCard {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="beso.jpg" alt="Foto juntos" class="photo">
+    <div class="heart"></div>
+    <div class="text">Te amo ❤️</div>
+    <button class="music-btn" onclick="toggleMusic()">🎵 Reproducir Música</button>
+    <audio id="loveMusic" loop>
+      <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+      Tu navegador no soporta audio HTML5.
+    </audio>
+  </div>
+
+  <script>
+    const music = document.getElementById('loveMusic');
+    let isPlaying = false;
+
+    function toggleMusic() {
+      if (isPlaying) {
+        music.pause();
+      } else {
+        music.play();
+      }
+      isPlaying = !isPlaying;
+    }
+  </script>
+
+</body>
+</html>
